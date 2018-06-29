@@ -1,0 +1,21 @@
+---
+
+- name: Install the best of the best
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - net-tools
+    - vim
+    - git
+    - htop
+    - iotop
+    - tmux
+    - wget
+    - wget
+    - curl
+    - autoconf
+    - automake
+    - gcc
+    - finch
+    - zsh

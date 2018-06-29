@@ -1,0 +1,19 @@
+---
+# tasks file for alexdevbox
+
+
+- name: Update erstmal
+  shell: |
+    yum -y update
+
+- name: Install EPEL repo
+  yum:
+    name: epel-release
+    state: present
+
+- include_tasks: packages.yml
+
+- name: Reboot
+  shell: |
+    reboot
+

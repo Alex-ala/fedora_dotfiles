@@ -1,0 +1,90 @@
+URxvt.font: xft:Source Code Pro
+URxvt.boldFont: xft:Source Code Pro:style=Bold,xft:PowerlineSymbols:style=Medium
+URxvt.italicFont: xft:Source Code Pro:style=Oblique,xft:PowerlineSymbols:style=Medium
+URxvt.boldItalicFont: xft:Source Code Pro:style=Bold Oblique,xft:PowerlineSymbols:style=Medium
+URxvt*letterSpace: 1
+! -----------------------------
+! XFT SETTINGS
+! -----------------------------
+
+Xft.antialias:  true
+Xft.autohint:   false
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.rgba:       rgb
+
+
+! -----------------------------
+! URXVT OPTIONS
+! -----------------------------
+
+URxvt*borderless:         true
+URxvt*internalBorder:     15
+URxvt*jumpScroll:         true
+URxvt*scrollBar:          false
+URxvt*scrollTryOutput:    false
+URxvt*scrollTtyKeypress:  true
+URxvt*urgentOnBell:       true
+URxvt*visualBell:         false
+
+
+
+rofi.location:          0
+rofi.color-enabled:     true
+!                       'background', 'border'
+rofi.color-window:      argb:dd2e2e2e, argb:ff2e2e2e, argb:ff2e2e2e
+
+! State:                'bg',          'fg',   'bgalt',       'hlbg',        'hlfg'
+rofi.color-normal:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffcc8822
+rofi.color-urgent:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffcc8822
+rofi.color-active:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffcc8822
+rofi.separator-style:   solid
+rofi.fullscreen:        true
+rofi.padding:           100
+rofi.hide-scrollbar:    true
+rofi.line-margin:       5
+rofi.fake-transparency: true
+rofi.yoffset:           10
+rofi.xoffset:           0
+rofi.width:             1366
+rofi.opacity:           90
+rofi.font:              Fira Mono 12
+
+
+! special
+*.foreground:   #ffffff
+*.background:   #2e2e2e
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #2e2e2e
+*.color8:       #676767
+
+! red
+*.color1:       #664444
+*.color9:       #976a6a
+
+! green
+*.color2:       #2d8338
+*.color10:      #52a25c
+
+! yellow
+*.color3:       #885522
+*.color11:      #e1a44a
+
+! blue
+*.color4:       #224455
+*.color12:      #365869
+
+! magenta
+*.color5:       #ff00e5
+*.color13:      #ff47ec
+
+! cyan
+*.color6:       #5DC4F7
+*.color14:      #009EED
+
+! white
+*.color7:       #a4a4a4
+*.color15:      #ffffff
+

@@ -1,0 +1,17 @@
+---
+
+- name: Install Antigen
+  shell: |
+    curl -L git.io/antigen > ~/.zsh.d/antigen.zsh
+
+- name: Install packages
+  yum:
+    name: powerline-fonts
+    state: present
+
+- name: Activate ZSH
+  user:
+    name: alex
+    shell: /bin/zsh
+
+
