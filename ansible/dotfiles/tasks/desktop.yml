@@ -1,0 +1,71 @@
+---
+
+- name: Install i3-gaps repo
+  become: true
+  shell: |
+    dnf -y copr enable gregw/i3desktop
+
+- name: Install i3-gaps
+  become: true
+  dnf:
+    name: i3-gaps
+    state: present
+
+- name: Install i3 theme libs
+  become: true
+  dnf:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - dmenu
+    - parcellite
+    - conky
+    - rofi
+    - i3lock
+    - perl-AnyEvent-I3
+
+- name: Install required fonts
+  shell: |
+    cd /tmp && git clone https://github.com/powerline/fonts.git && cd fonts && ./install.sh && cd && rm -rf /tmp/fonts
+
+- name: Install build deps
+  become: true
+  dnf:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - gcc-c++
+    - perl
+    - redhat-rpm-config
+    - perl-ExtUtils-ParseXS
+    - libX11
+    - libX11-devel
+    - libXft
+    - libXft-devel
+
+- name: clone needed repos
+  shell: |
+    cd /tmp && rm -rf rxvt-unicode && git clone https://github.com/exg/rxvt-unicode && cd rxvt-unicode && git submodule add https://github.com/enki/libev && git submodule add https://github.com/yusiwen/libptytty
+
+- name: fix weird pathings
+  become: true
+  file:
+    src: /usr/share/perl5/vendor_perl/ExtUtils/xsubpp
+    dest: /usr/share/perl5/ExtUtils/xsubpp
+    state: link
+  tags: patches
+
+- name: Add some flags
+  shell: |
+    cd /tmp/rxvt-unicode && sed -i 's/CPPFLAGS = @CPPFLAGS@/CPPFLAGS = @CPPFLAGS@ -fPIC/' src/Makefile.in
+  tags: patches
+
+- name: Build 
+  become: true
+  shell: |
+    cd /tmp/rxvt-unicode && ./autogen.sh && ./configure --prefix=/usr --enable-everything --enable-256-color --enable-backspace-key --enable-combining --enable-delete-key --enable-fallback=shiva --enable-font-styles --enable-frills --enable-iso14755 --enable-perl --enable-resources --enable-selectionscrolling --enable-smart-resize  --enable-swapscreen --enable-text-blink --enable-utmp --enable-wtmp --with-name=rxvt --with-res-class=URxvt --with-res-name=shiva --with-term=rxvt-unicode-256color --with-terminfo=/usr/share/terminfo && make || make install
+
+- name: Enable GUI
+  become: true
+  shell: |
+    systemctl set-default graphical.target

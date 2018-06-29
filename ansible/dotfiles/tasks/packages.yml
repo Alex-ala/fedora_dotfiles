@@ -1,7 +1,8 @@
 ---
 
 - name: Install the best of the best
-  yum:
+  become: true
+  dnf:
     name: "{{item}}"
     state: present
   with_items:

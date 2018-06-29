@@ -1,0 +1,13 @@
+---
+
+- name: Copy .files
+  copy:
+    src: "../{{item}}"
+    dest: "~/"
+  with_items:
+    - ".config"
+    - ".i3"
+    - ".vimrc"
+    - ".zsh.d"
+    - ".zshrc"
+    - ".Xresources"

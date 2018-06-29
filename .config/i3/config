@@ -25,6 +25,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
+font Source Code Pro
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -38,7 +39,7 @@ new_window pixel 2
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt256c
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+q kill
@@ -133,7 +134,7 @@ bindsym $mod+Shift+0 move container to workspace $tag0
 bindsym $mod+t exec ~/.i3/tags
 # [move to] new workspace
 bindsym $mod+i exec i3-input -F "workspace \"%s\"" -P 'Workspace: '
-bindsym $mod+Shift+i exec i3-input -F "move container to workspace \"%s\"" -P 'Move to workspace: '
+bindsym $mod+Shift+i exec i3-innut -F "move container to workspace \"%s\"" -P 'Move to workspace: '
 # mark container
 bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
 bindsym $mod+Shift+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
@@ -252,5 +253,5 @@ bindsym $mod+Mod1+e exec /usr/bin/rxvt -e ranger
 bindsym $mod+r exec rofi -show run
 
 #Workspace 1
-exec --no-startup-id i3-msg 'workspace 1 $tag1; append_layout ~/.i3/layouts/w1; exec urxvt -e finch; exec urxvt; exec firefox'
+exec --no-startup-id i3-msg 'workspace 1 $tag1; append_layout ~/.i3/layouts/w1; exec urxvt -e finch; exec urxvt256c; exec firefox'
 
