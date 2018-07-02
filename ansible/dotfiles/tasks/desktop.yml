@@ -1,26 +1,14 @@
 ---
 
-- name: Install i3-gaps repo
-  become: true
-  shell: |
-    dnf -y copr enable gregw/i3desktop
-
-- name: Install i3-gaps
-  become: true
-  dnf:
-    name: i3-gaps
-    state: present
-
 - name: Install i3 theme libs
   become: true
-  dnf:
+  yum:
     name: "{{item}}"
     state: present
   with_items:
+    - i3
     - dmenu
-    - parcellite
     - conky
-    - rofi
     - i3lock
     - perl-AnyEvent-I3
 
@@ -30,7 +18,7 @@
 
 - name: Install build deps
   become: true
-  dnf:
+  yum:
     name: "{{item}}"
     state: present
   with_items:
@@ -42,6 +30,7 @@
     - libX11-devel
     - libXft
     - libXft-devel
+    - perl-ExtUtils-Embed
 
 - name: clone needed repos
   shell: |

@@ -2,7 +2,7 @@
 
 - name: Install the best of the best
   become: true
-  dnf:
+  yum:
     name: "{{item}}"
     state: present
   with_items:
@@ -12,7 +12,6 @@
     - htop
     - iotop
     - tmux
-    - wget
     - wget
     - curl
     - autoconf
