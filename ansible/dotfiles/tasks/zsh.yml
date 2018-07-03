@@ -4,12 +4,6 @@
   shell: |
     curl -L https://git.io/antigen > ~/.zsh.d/antigen.zsh
 
-- name: Install packages
-  become: true
-  dnf:
-    name: powerline-fonts
-    state: present
-
 - name: Activate ZSH
   become: true
   user:

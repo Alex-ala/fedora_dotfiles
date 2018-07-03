@@ -11,3 +11,9 @@
     - ".zsh.d"
     - ".zshrc"
     - ".Xresources"
+
+- name: Fix Permissions
+  file:
+    path: ~/.i3/conky-i3bar
+    mode: 0774
+
