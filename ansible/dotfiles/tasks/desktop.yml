@@ -12,6 +12,7 @@
     - dmenu
     - conky
     - i3lock
+    - fontawesome-fonts
     - perl-AnyEvent-I3
 
 - name: Install xorg drivers
