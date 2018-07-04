@@ -11,6 +11,7 @@
     - ".zsh.d"
     - ".zshrc"
     - ".Xresources"
+    - ".xinitrc"
 
 - name: Fix Permissions
   file:
