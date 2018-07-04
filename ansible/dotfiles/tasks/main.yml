@@ -13,6 +13,7 @@
 - include_tasks: zsh.yml
 
 - name: Reboot
+  become: yes
   shell: |
     reboot
 

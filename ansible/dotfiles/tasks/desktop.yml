@@ -6,11 +6,18 @@
     name: "{{item}}"
     state: present
   with_items:
+    - xorg-x11-server-Xorg
+    - xorg-x11-xinit
     - i3
     - dmenu
     - conky
     - i3lock
     - perl-AnyEvent-I3
+
+- name: Install xorg drivers
+  become: true
+  shell: |
+    yum -y install "xorg-x11-drv*"
 
 - name: Install required fonts
   shell: |
@@ -52,7 +59,7 @@
 - name: Build 
   become: true
   shell: |
-    cd /tmp/rxvt-unicode && ./autogen.sh && ./configure --prefix=/usr --enable-everything --enable-256-color --enable-backspace-key --enable-combining --enable-delete-key --enable-fallback=shiva --enable-font-styles --enable-frills --enable-iso14755 --enable-perl --enable-resources --enable-selectionscrolling --enable-smart-resize  --enable-swapscreen --enable-text-blink --enable-utmp --enable-wtmp --with-name=rxvt --with-res-class=URxvt --with-res-name=shiva --with-term=rxvt-unicode-256color --with-terminfo=/usr/share/terminfo && make || make install
+    cd /tmp/rxvt-unicode && ./autogen.sh && ./configure --prefix=/usr --enable-everything --enable-256-color --enable-backspace-key --enable-combining --enable-delete-key --enable-fallback=shiva --enable-font-styles --enable-frills --enable-iso14755 --enable-perl --enable-resources --enable-selectionscrolling --enable-smart-resize  --enable-swapscreen --enable-text-blink --enable-utmp --enable-wtmp --with-name=rxvt --with-res-class=URxvt --with-res-name=shiva --with-term=rxvt-unicode-256color --with-terminfo=/usr/share/terminfo &&  echo make && make || echo install && make install
 
 - name: Enable GUI
   become: true
