@@ -18,6 +18,3 @@
     path: ~/.i3/conky-i3bar
     mode: 0774
 
-- name : Load Xresources
-  shell: |
-    xrdb ~/.Xresources
