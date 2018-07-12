@@ -256,7 +256,7 @@ exec --no-startup-id ~/.i3/i3-startup
 #Workspace 1
 exec --no-startup-id i3-msg 'workspace 1 $tag1; append_layout ~/.i3/layouts/w1; exec rambox'
 #Workspace 2
-exec --no-startup-id i3-msg 'workspace 2 $tag2; append_layout ~/.i3/layouts/w2; exec google_chrome --new-window "https://google.ch"'
+exec --no-startup-id i3-msg 'workspace 2 $tag2; append_layout ~/.i3/layouts/w2; exec google-chrome --new-window "https://google.ch"'
 #Workspace 8
 exec --no-startup-id i3-msg 'workspace 8 $tag8; append_layout ~/.i3/layouts/w8; exec spotify'
 #Workspace 9
