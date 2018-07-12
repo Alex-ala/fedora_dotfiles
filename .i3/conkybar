@@ -13,7 +13,7 @@ override_utf8_locale yes
 cpu_avg_samples 1
 color1 #000000 
 color2 #88ABC4
-
+default_bar_size 30 2
 
 
 # Stuff after 'TEXT' will be formatted on screen
@@ -30,23 +30,27 @@ TEXT
 #        "color"     : ${if_match ${acpitemp}>55}"\#ff0000"${else}"\#88ABC4"${endif}
 #    },
     {
-        "full_text" : "|${exec xprop -id $(xprop  -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/\1/p') | awk '/_NET_WM_NAME/{$1=$2="";print}'| sed 's/["?/\]//g' }\t|",
+        "full_text" : "${exec xprop -id $(xprop  -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/\1/p') | awk '/_NET_WM_NAME/{$1=$2="";print}'| sed 's/["?\]//g' }\t|",
         "color"     : "\#EOC879"
     },
     {
-        "full_text" : "\uF0ED ${if_up wlan0}${downspeed wlan0}${else}${downspeed eth0}${endif}/s",
+        "full_text" : "APP: ${execbar /home/alex/.zsh.d/bin/appstream} |",
+        "color"     : "\#E87461"
+    },
+    {
+        "full_text" : "\uF0ED ${if_up wlan0}${downspeed wlan0}${else}${downspeed ens33}${endif}/s",
         "color"     : "\#D5D887"
     },
     {
-        "full_text" : "\uF0EE ${if_up wlan0}${upspeed wlan0}${else}${upspeed eth0}${endif}/s |",
+        "full_text" : "\uF0EE ${if_up wlan0}${upspeed wlan0}${else}${upspeed ens33}${endif}/s |",
         "color"     : "\#D5D887"
     },
     {
-        "full_text" : "\uF0AE ${cpubar 10,20} |", 
+        "full_text" : "\uF0AE ${cpubar} |", 
         "color"	    : ${if_match ${cpu}>80}"\#E87461"${else}"\#7AC74F"${endif}
     },
     {
-        "full_text" : "\uF1C0 ${membar 10,20} ${mem}/${memmax} |",
+        "full_text" : "\uF1C0 ${membar} ${mem}/${memmax} |",
         "color"     : ${if_match ${memperc}>80}"\#E87461"${else}"\#7AC74F"${endif}
     },
     {

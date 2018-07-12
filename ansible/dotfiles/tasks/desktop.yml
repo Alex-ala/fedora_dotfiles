@@ -13,6 +13,7 @@
     - conky
     - i3lock
     - fontawesome-fonts
+    - xprop
     - perl-AnyEvent-I3
 
 - name: Install xorg drivers
@@ -60,7 +61,7 @@
 - name: Build 
   become: true
   shell: |
-    cd /tmp/rxvt-unicode && ./autogen.sh && ./configure --prefix=/usr --enable-everything --enable-256-color --enable-backspace-key --enable-combining --enable-delete-key --enable-fallback=shiva --enable-font-styles --enable-frills --enable-iso14755 --enable-perl --enable-resources --enable-selectionscrolling --enable-smart-resize  --enable-swapscreen --enable-text-blink --enable-utmp --enable-wtmp --with-name=rxvt --with-res-class=URxvt --with-res-name=shiva --with-term=rxvt-unicode-256color --with-terminfo=/usr/share/terminfo &&  echo make && make || echo install && make install
+    cd /tmp/rxvt-unicode && ./autogen.sh && ./configure --prefix=/usr --enable-everything --enable-256-color --enable-backspace-key --enable-combining --enable-delete-key --enable-fallback=shiva --enable-font-styles --enable-frills --enable-iso14755 --enable-perl --enable-resources --enable-selectionscrolling --enable-smart-resize  --enable-swapscreen --enable-text-blink --enable-utmp --enable-wtmp --with-name=rxvt --with-res-class=URxvt --with-res-name=shiva --with-term=rxvt-unicode-256color --with-terminfo=/usr/share/terminfo &&  echo make && make || echo install && make install && rm -rf /tmp/rxvt-unicode
 
 - name: Enable GUI
   become: true
