@@ -25,7 +25,6 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
-font Source Code Pro
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -252,6 +251,13 @@ bindsym $mod+Mod1+e exec /usr/bin/rxvt -e ranger
 #Rofi
 bindsym $mod+r exec rofi -show run
 
-#Workspace 1
-exec --no-startup-id i3-msg 'workspace 1 $tag1; append_layout ~/.i3/layouts/w1; exec urxvt -e finch; exec urxvt256c; exec firefox'
 
+exec --no-startup-id ~/.i3/i3-startup
+#Workspace 1
+exec --no-startup-id i3-msg 'workspace 1 $tag1; append_layout ~/.i3/layouts/w1; exec rambox'
+#Workspace 2
+exec --no-startup-id i3-msg 'workspace 2 $tag2; append_layout ~/.i3/layouts/w2; exec google_chrome'
+#Workspace 9
+exec --no-startup-id i3-msg 'workspace 9 $tag9; append_layout ~/.i3/layouts/w9; exec grafana'
+#Launch in plain WS 4
+exec --no-startup-id i3-msg 'workspace 4 $tag4;'

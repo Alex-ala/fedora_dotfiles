@@ -1,0 +1,41 @@
+--- 
+
+- name: Add libxdg-basedir to local repo
+  become: true
+  get_url:
+    url: {{item}}
+    dest: /srv/yum-repo/
+  with_items:
+    - "https://copr-be.cloud.fedoraproject.org/results/sic/backports-el7/epel-7-x86_64/libxdg-basedir-1.2.0-7.fc21/libxdg-basedir-1.2.0-7.el7.centos.x86_64.rpm"
+    - "https://copr-be.cloud.fedoraproject.org/results/sic/backports-el7/epel-7-x86_64/libxdg-basedir-1.2.0-7.fc21/libxdg-basedir-devel-1.2.0-7.el7.centos.x86_64.rpm"
+
+- name: Reindex local repo
+  become: true
+  shell: |
+    createrepo /srv/yum-repo
+
+- name: Install Dunst requirements
+  become: true
+  yum:
+    name: {{item}}
+    state: present
+  with_items:
+    - pango-devel
+    - cairo-devel
+    - libXinerama-devel
+    - libXrandr-devel
+    - libXScrnSaver-devel
+    - gtk3-devel
+    - libxdg-basedir-devel
+    - dbus-x11
+
+- name: Download Dunst
+  unarchive:
+    src: "https://github.com/dunst-project/dunst/archive/v1.3.2.tar.gz"
+    dest: /tmp/dunst/
+    remote_src: yes
+
+- name: Install Dunst
+  become: yes
+  shell: |
+    cd /tmp/dunst/dunst* && make && make install && cd && rm -rf /tmp/dunst

@@ -17,5 +17,17 @@
     - autoconf
     - automake
     - gcc
-    - finch
     - zsh
+    - createrepo 
+    - python34
+
+- name: Create local Repo
+  become: true
+  file:
+    path: /srv/yum-repo
+    state: directory
+
+- name: Create rpm Repodata
+  shell: |
+    createrepo /srv/yum-repo
+

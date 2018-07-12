@@ -4,16 +4,16 @@
     "current_border_width": 2,
     "floating": "auto_off",
     "geometry": {
-       "height": 1076,
+       "height": 1055,
        "width": 1916,
-       "x": 1922,
+       "x": 2,
        "y": 2
     },
-    "name": "Rambox - Slack",
+    "name": "New Tab - Google Chrome",
     "percent": 1,
     "swallows": [
        {
-       "class": "^Rambox$"
+       "class": "^Google\\-chrome$"
        }
     ],
     "type": "con"
