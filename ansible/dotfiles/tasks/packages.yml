@@ -32,3 +32,9 @@
   shell: |
     createrepo /srv/yum-repo
 
+- name: Copy repo file  
+  become: yes
+  copy:
+    src: ../local.repo
+    dest: /etc/yum.repos.d/local.repo
+  
