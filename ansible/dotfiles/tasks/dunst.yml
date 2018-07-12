@@ -30,6 +30,11 @@
     - libxdg-basedir-devel
     - dbus-x11
 
+- name: make dunst tmp dir
+  file:
+    path: /tmp/dunst
+    state: directory
+
 - name: Download Dunst
   unarchive:
     src: "https://github.com/dunst-project/dunst/archive/v1.3.2.tar.gz"
