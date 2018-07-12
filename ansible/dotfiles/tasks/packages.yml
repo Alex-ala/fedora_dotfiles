@@ -20,6 +20,8 @@
     - zsh
     - createrepo 
     - python34
+    - pulseaudio
+    - alsa-utils
 
 - name: Create local Repo
   become: true

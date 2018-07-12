@@ -1,0 +1,19 @@
+---
+
+- name: Download Rambox
+  become: yes
+  get_url:
+    url: "https://github.com/saenzramiro/rambox/releases/download/0.5.17/Rambox-0.5.17-x64.rpm"
+    dest: /srv/yum-repo/
+
+- name: Update Repo
+  become: yes
+  shell: |
+    createrepo /srv/yum-repo
+
+- name: Install Rambox
+  become: yes
+  yum: 
+    update_cache: yes
+    name: Rambox
+    state: present
