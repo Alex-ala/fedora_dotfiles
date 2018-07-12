@@ -1,9 +1,2 @@
 #!/bin/bash
-amixer get 'Master',0  | grep "Front Left:" | grep off > /dev/null
-if [ $? -eq 0 ]; then
-	echo "0"
-else
-	amixer get Master -M | grep -oP '\d*%' | tail -n1 | sed 's/%//g'
-fi
-	
-
+awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) | head -1

@@ -8,7 +8,7 @@ update_interval 2
 total_run_times 0
 short_units yes
 if_up_strictness link
-use_spacer yes
+use_spacer right
 override_utf8_locale yes
 cpu_avg_samples 1
 color1 #000000 
@@ -46,20 +46,16 @@ TEXT
         "color"     : "\#D5D887"
     },
     {
-        "full_text" : "\uF0AE ${cpubar} |", 
+        "full_text" : "\uF0AE ${cpu}% |", 
         "color"	    : ${if_match ${cpu}>80}"\#E87461"${else}"\#7AC74F"${endif}
     },
     {
-        "full_text" : "\uF1C0 ${membar} ${mem}/${memmax} |",
+        "full_text" : "\uF1C0 ${mem}/${memmax} |",
         "color"     : ${if_match ${memperc}>80}"\#E87461"${else}"\#7AC74F"${endif}
     },
     {
-        "full_text" : "\uF0A1 ${exec ~/.i3/bin/conky-audio}% |",
+        "full_text" : "\uF0A1 ${exec ~/.i3/conky-audio} |",
         "color"     : "\#D5D887"
-    },
-    {
-        "full_text" : "${if_match ${exec ~/.i3/bin/battery }>0}\uF0E4${else}\uF1E6${endif} ${battery_percent}% |",
-        "color"     : ${if_match ${battery_percent}<15}"\#E87461"${else}"\#D5D887"${endif}
     },
     {
         "full_text" : "\uF073 ${time %A %d %b} - ${time %R}",
