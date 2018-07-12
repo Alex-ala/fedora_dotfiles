@@ -11,7 +11,7 @@ font = Source Code Pro
 # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
 # If markup is not allowed, those tags will be stripped out of the
 # message.
-markup = yes
+markup = no
 plain_text = no
 
 # The format of the message.  Possible variables are:

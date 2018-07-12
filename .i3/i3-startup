@@ -1,2 +1,3 @@
 #!/bin/sh
+kill $(pidof dunst)
 dunst -conf ~/.dunstrc &
