@@ -21,6 +21,7 @@
     - createrepo 
     - python34
     - pulseaudio
+    - GConf2
     - alsa-utils
 
 - name: Create local Repo
