@@ -1,9 +1,9 @@
-- 
+--- 
 
 - name: Add libxdg-basedir to local repo
   become: true
   get_url:
-    url: {{item}}
+    url: "{{item}}"
     dest: /srv/yum-repo/
   with_items:
     - "https://copr-be.cloud.fedoraproject.org/results/sic/backports-el7/epel-7-x86_64/libxdg-basedir-1.2.0-7.fc21/libxdg-basedir-1.2.0-7.el7.centos.x86_64.rpm"
@@ -18,7 +18,7 @@
   become: true
   yum:
     update_cache: yes
-    name: {{item}}
+    name: "{{item}}"
     state: present
   with_items:
     - pango-devel
