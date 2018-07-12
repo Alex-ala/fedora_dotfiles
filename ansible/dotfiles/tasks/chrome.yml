@@ -1,15 +1,18 @@
 ---
 
 - name: Download Chrome
+  become: true
   get_url:
     url: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
     dest: /srv/yum-repo/
 
 - name: Update Repo
+  become: true
   shell: |
     createrepo /srv/yum-repo
 
 - name: install Chrome
+  become: true
   yum: 
     update_cache: yes
     name: google-chrome-stable
