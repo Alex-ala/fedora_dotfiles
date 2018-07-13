@@ -35,7 +35,11 @@ TEXT
     },
     {
         "full_text" : "APP: ${execbar /home/alex/.zsh.d/bin/appstream} |",
-        "color"     : "\#E87461"
+        "color"     : ${if_match ${exec /home/alex/.zsh.d/bin/appstream}>30}"\#E87461"${else}"\#7AC74F"${endif}
+    },
+    {
+        "full_text" : "API: ${execbar /home/alex/.zsh.d/bin/apistream} |",
+        "color"     : ${if_match ${exec /home/alex/.zsh.d/bin/apistream}>30}"\#E87461"${else}"\#7AC74F"${endif}
     },
     {
         "full_text" : "\uF0ED ${if_up wlan0}${downspeed wlan0}${else}${downspeed ens33}${endif}/s",

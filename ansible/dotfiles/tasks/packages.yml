@@ -7,6 +7,8 @@
     state: present
   with_items:
     - net-tools
+    - bind-utils
+    - jq
     - vim
     - git
     - htop
