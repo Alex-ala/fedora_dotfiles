@@ -25,6 +25,12 @@
     - pulseaudio
     - GConf2
     - alsa-utils
+    - gnome-keyring
+    - gnome-keyring-pam
+    - libgnome-keyring
+    - ruby
+    - bzip2
+    - unzip
 
 - name: Create local Repo
   become: true

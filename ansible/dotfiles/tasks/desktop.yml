@@ -15,6 +15,7 @@
     - fontawesome-fonts
     - xprop
     - perl-AnyEvent-I3
+    - xterm
 
 - name: Install xorg drivers
   become: true
@@ -22,8 +23,15 @@
     yum -y install "xorg-x11-drv*"
 
 - name: Install required fonts
-  shell: |
-    cd /tmp && git clone https://github.com/powerline/fonts.git && cd fonts && ./install.sh && cd && rm -rf /tmp/fonts
+  become: yes
+  get_url: 
+    url: "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf"
+    dest: /usr/share/fonts/
+
+- name: Refresh font cache
+    become: yes
+    shell: |
+        fc-cache -r
 
 - name: Install build deps
   become: true
@@ -40,28 +48,6 @@
     - libXft
     - libXft-devel
     - perl-ExtUtils-Embed
-
-- name: clone needed repos
-  shell: |
-    cd /tmp && rm -rf rxvt-unicode && git clone https://github.com/exg/rxvt-unicode && cd rxvt-unicode && git submodule add https://github.com/enki/libev && git submodule add https://github.com/yusiwen/libptytty
-
-- name: fix weird pathings
-  become: true
-  file:
-    src: /usr/share/perl5/vendor_perl/ExtUtils/xsubpp
-    dest: /usr/share/perl5/ExtUtils/xsubpp
-    state: link
-  tags: patches
-
-- name: Add some flags
-  shell: |
-    cd /tmp/rxvt-unicode && sed -i 's/CPPFLAGS = @CPPFLAGS@/CPPFLAGS = @CPPFLAGS@ -fPIC/' src/Makefile.in
-  tags: patches
-
-- name: Build 
-  become: true
-  shell: |
-    cd /tmp/rxvt-unicode && ./autogen.sh && ./configure --prefix=/usr --enable-everything --enable-256-color --enable-backspace-key --enable-combining --enable-delete-key --enable-fallback=shiva --enable-font-styles --enable-frills --enable-iso14755 --enable-perl --enable-resources --enable-selectionscrolling --enable-smart-resize  --enable-swapscreen --enable-text-blink --enable-utmp --enable-wtmp --with-name=rxvt --with-res-class=URxvt --with-res-name=shiva --with-term=rxvt-unicode-256color --with-terminfo=/usr/share/terminfo &&  echo make && make || echo install && make install && rm -rf /tmp/rxvt-unicode
 
 - name: Enable GUI
   become: true

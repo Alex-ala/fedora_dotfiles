@@ -1,5 +1,5 @@
-URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:size=11,xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=11
 !URxvt.boldFont: xft:Source Code Pro:style=Bold,xft:PowerlineSymbols:style=Medium
+URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:size=11,xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=11,xft:PowerlineSymbols:size=11
 !URxvt.italicFont: xft:Source Code Pro:style=Oblique,xft:PowerlineSymbols:style=Medium
 !URxvt.boldItalicFont: xft:Source Code Pro:style=Bold Oblique,xft:PowerlineSymbols:style=Medium
 URxvt*letterSpace: 1
@@ -26,6 +26,19 @@ URxvt*scrollTryOutput:    false
 URxvt*scrollTtyKeypress:  true
 URxvt*urgentOnBell:       true
 URxvt*visualBell:         false
+
+
+XTerm*faceName: SauceCodePro Nerd Font:style=Regular:size=11
+XTerm*renderFont: true
+XTerm*letterSpace: 1
+XTerm*borderless:         true
+XTerm*internalBorder:     15
+XTerm*jumpScroll:         true
+XTerm*scrollBar:          false
+XTerm*scrollTryOutput:    false
+XTerm*scrollTtyKeypress:  true
+XTerm*urgentOnBell:       true
+XTerm*visualBell:         false
 
 
 
@@ -61,11 +74,11 @@ rofi.font:              Fira Mono 12
 *.color8:       #676767
 
 ! red
-*.color1:       #664444
+*.color1:       #e84a4a
 *.color9:       #976a6a
 
 ! green
-*.color2:       #2d8338
+*.color2:       #3aaa48
 *.color10:      #52a25c
 
 ! yellow
@@ -73,8 +86,8 @@ rofi.font:              Fira Mono 12
 *.color11:      #e1a44a
 
 ! blue
-*.color4:       #224455
-*.color12:      #365869
+*.color4:       #3b7b9b
+*.color12:      #365864
 
 ! magenta
 *.color5:       #ff00e5

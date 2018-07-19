@@ -1,0 +1,31 @@
+---
+
+- name: Install requirements
+  become: yes
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - gcc-c++
+    - git
+    - cmake
+    - libXtst-devel
+    - libXfixes-devel
+    - qt5-qtbase-devel
+    - qt5-qtsvg-devel
+    - qt5-qttools-devel
+    - qt5-qtscript-devel
+    - qt5-qtx11extras-devel
+
+- name: Clone copyq
+  shell: |
+    cd /tmp && git clone https://github.com/hluk/CopyQ.git
+
+- name: Make copyq
+  shell: |
+    cd /tmp/CopyQ && cmake -DCMAKE_INSTALL_PREFIX=/usr/local . && make
+
+- name: Install copyq
+  become: yes
+  shell: |
+    cd /tmp/CopyQ && make install
