@@ -25,13 +25,13 @@
 - name: Install required fonts
   become: yes
   get_url: 
-    url: "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf"
-    dest: /usr/share/fonts/
+    url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete%20Mono.ttf"
+    dest: "/usr/share/fonts/Sauce Code Pro Nerd Font Complete Mono.ttf"
 
 - name: Refresh font cache
-    become: yes
-    shell: |
-        fc-cache -r
+  become: yes
+  shell: |
+    fc-cache -r
 
 - name: Install build deps
   become: true
