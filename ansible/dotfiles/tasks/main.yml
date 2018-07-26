@@ -15,6 +15,7 @@
 - include_tasks: dotfiles.yml
 - include_tasks: zsh.yml
 - include_tasks: apps.yml
+- include_tasks: feh.yml
 
 - name: Reboot
   become: yes

@@ -1,0 +1,19 @@
+---
+
+- name: install requirements
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - libcurl-devel
+    - imlib2-devel
+    - libXt-devel
+
+- name: clone feh
+  shell: |
+    cd /tmp && git clone git://git.finalrewind.org/feh || git clone git://github.com/derf/feh.git
+
+- name: make feh
+  become: yes
+  shell: | 
+    cd /tmp/feh && make && make install
