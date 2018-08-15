@@ -22,11 +22,15 @@
   shell: |
     yum -y install "xorg-x11-drv*"
 
+- name: create fonts dir
+  file:
+    path: "/home/alex/.local/share/fonts"
+    state: directory
+
 - name: Install required fonts
-  become: yes
   get_url: 
     url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf"
-    dest: "/usr/share/fonts/Sauce Code Pro Nerd Font Complete.ttf"
+    dest: "/home/alex/.local/share/fonts/"
 
 - name: Refresh font cache
   become: yes
