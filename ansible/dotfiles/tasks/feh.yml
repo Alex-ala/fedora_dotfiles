@@ -1,6 +1,7 @@
 ---
 
 - name: install requirements
+  become: yes
   yum:
     name: "{{item}}"
     state: present
