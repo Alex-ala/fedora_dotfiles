@@ -1,0 +1,7 @@
+---
+
+- name: Copy dotfiles
+  copy:
+    src: "{{item}}"
+    dest: /home/alex/
+  with_fileglob: "files/*"

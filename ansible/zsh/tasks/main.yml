@@ -1,0 +1,20 @@
+---
+
+- name: Install Antigen
+  shell: |
+    curl -L https://git.io/antigen > /home/alex/.zsh.d/antigen.zsh
+
+- name: Activate ZSH
+  become: true
+  user:
+    name: alex
+    shell: /bin/zsh
+
+- name: Copy dotfiles for zsh
+  copy:
+    src: "{{item}}"
+    dest: /home/alex/
+  with_items:
+    - .bash_profile
+    - .zshrc
+    - .zsh.d

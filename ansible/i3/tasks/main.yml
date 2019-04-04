@@ -1,0 +1,11 @@
+---
+
+- name: Copy i3 main config
+  copy:
+    src: config/config
+    dest: /home/alex/.config/i3/config
+
+- name: Copy i3 configs
+  copy:
+    src: .i3
+    dest: /home/alex/.i3

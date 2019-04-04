@@ -1,0 +1,79 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 486,
+       "width": 830,
+       "x": 0,
+       "y": 0
+    },
+    "name": "notes patricksUrlaub",
+    "percent": 0.55,
+    "swallows": [
+       {
+       // "class": "^XTerm$",
+       // "instance": "^xterm$",
+       "title": "^notes\\ patricksUrlaub$",
+       // "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.45,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 486,
+               "width": 830,
+               "x": 0,
+               "y": 0
+            },
+            "name": "notes todo",
+            "percent": 0.65,
+            "swallows": [
+               {
+               // "class": "^XTerm$",
+               // "instance": "^xterm$",
+               "title": "^notes\\ todo$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 486,
+               "width": 830,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Kalender",
+            "percent": 0.35,
+            "swallows": [
+               {
+               // "class": "^XTerm$",
+               // "instance": "^xterm$",
+               "title": "^watch\\ \\-tcn\\ 600\\ \\\"vdirsyncer\\ sync\\ \\>\\ \\/dev\\/null\\ 2\\>\\&1\\ \\&\\&\\ khal\\ \\-\\-color\\\"$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

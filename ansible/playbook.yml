@@ -1,4 +1,7 @@
 ---
 - hosts: all
   roles:
-    - name: dotfiles
+    - name: yum-packages
+    - name: zsh
+    - name: general_dotfiles
+    - name: i3
